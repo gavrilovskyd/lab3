@@ -56,7 +56,8 @@ public class DelayStatApp {
         Map<String,String> airportNamesMap = airportNames.collectAsMap();
         final Broadcast<Map<String, String>> airportNamesBroadcast = sc.broadcast(airportNamesMap);
 
-        JavaRDD<BadFlightsStat> totalAirportStat = airportsBadFlightsStats.map(badFlightsStat -> {
+        //TODO: remove Strings
+        JavaRDD<String> totalAirportStat = airportsBadFlightsStats.map(badFlightsStat -> {
             badFlightsStat._2.setOriginAirportName(airportNamesBroadcast.value().get(badFlightsStat._1._1));
             badFlightsStat._2.setDestAirportName(airportNamesBroadcast.value().get(badFlightsStat._1._2));
 
