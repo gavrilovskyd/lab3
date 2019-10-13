@@ -16,7 +16,7 @@ public class DelayStatApp {
             "ORIGIN_CITY_MARKET_ID","DEST_AIRPORT_ID","WHEELS_ON","ARR_TIME","ARR_DELAY",
             "ARR_DELAY_NEW","CANCELLED","CANCELLATION_CODE","AIR_TIME","DISTANCE"
     };
-    
+
     private String ORIGIN_AIRPORT_ID_FIELD = "ORIGIN_AIRPORT_ID";
     private String DEST_AIRPORT_ID_FIELD = "DEST_AIRPORT_ID";
     private String CANCELED_FIELD = "CANCELLED";
@@ -34,7 +34,7 @@ public class DelayStatApp {
                     CSVRecord record = parser.getRecords().get(0);
 
                     return new Tuple2<>(
-                            new Tuple2<>(fields[ORIGIN_AIRPORT_ID_FILED], fields[DEST_AIRPORT_ID_FILED]),
+                            new Tuple2<>(record.get(ORIGIN_AIRPORT_ID_FIELD), fields[DEST_AIRPORT_ID_FILED]),
                             new FlightInfo(Float.parseFloat()))
                 });
 
