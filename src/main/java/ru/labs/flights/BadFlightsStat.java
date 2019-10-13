@@ -40,7 +40,7 @@ public class BadFlightsStat implements Serializable {
     }
 
     public BadFlightsStat(String rawDelay, String rawCanceled) {
-        
+
     }
 
     public static BadFlightsStat add(BadFlightsStat a, BadFlightsStat b) {
