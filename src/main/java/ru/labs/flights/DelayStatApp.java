@@ -10,6 +10,8 @@ import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
 import scala.Tuple4;
 
+import java.util.Map;
+
 public class DelayStatApp {
     private static final String[] flightHeader = {
             "YEAR","QUARTER","MONTH", "DAY_OF_MONTH","DAY_OF_WEEK","FL_DATE","UNIQUE_CARRIER",
