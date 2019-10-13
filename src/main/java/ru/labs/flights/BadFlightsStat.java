@@ -9,6 +9,8 @@ public class BadFlightsStat implements Serializable {
     private int delayedCount;
     private int canceledCount;
     private int totalCount;
+    private String originAirportName;
+    private String destAirportName;
 
     public float getMaxDelay() {
         return maxDelay;
