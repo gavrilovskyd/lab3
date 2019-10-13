@@ -46,5 +46,6 @@ public class DelayStatApp {
                         new Tuple2<>(parsedRecord._1(), parsedRecord._2()),
                         Float.parseFloat(parsedRecord._3())));
 
+        airportsDelay.red
     }
 }
