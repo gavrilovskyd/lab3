@@ -46,7 +46,7 @@ public class DelayStatApp {
         JavaRDD<String>airportLines = sc.textFile("airports_data.csv");
         JavaPairRDD<String, String> airportNames = airportLines
                 .mapToPair(line -> {
-                    CSVParser parser = CSVParser.parse(line.toString(), CSVFormat.RFC4180.withHeader(flightHeader));
+                    CSVParser parser = CSVParser.parse(line.toString(), CSVFormat.RFC4180.withHeader(airportHeader));
                     CSVRecord record = parser.getRecords().get(0);
                 });
     }
