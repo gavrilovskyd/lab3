@@ -7,7 +7,7 @@ import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
 
 public class DelayStatApp {
-    private static final int ORIGIN_AIRPORT_ID_FILED = 12;
+    private static final int ORIGIN_AIRPORT_ID_FILED = 11;
     private static final int DEST_AIRPORT_ID_FILED = 12;
 
     public static void main(String[] args) throws Exception {
