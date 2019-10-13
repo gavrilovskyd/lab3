@@ -27,7 +27,7 @@ public class DelayStatApp {
                 flightLines.mapToPair(line -> {
                     CSVParser parser = CSVParser.parse(value.toString(), CSVFormat.RFC4180.withHeader(flightHeader));
                     CSVRecord record = parser.getRecords().get(0);
-                    
+
                     return new Tuple2<>(
                             new Tuple2<>(fields[ORIGIN_AIRPORT_ID_FILED], fields[DEST_AIRPORT_ID_FILED]),
                             new FlightInfo(Float.parseFloat()))
