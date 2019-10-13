@@ -63,7 +63,7 @@ public class DelayStatApp {
             return badFlightsStat._2;
         });
 
-        System.out.println(totalAirportStat.);
+        System.out.println(totalAirportStat.take(10));
         sc.stop();
     }
 }
