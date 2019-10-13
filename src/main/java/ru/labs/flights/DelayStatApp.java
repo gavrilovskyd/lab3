@@ -23,9 +23,8 @@ public class DelayStatApp {
     private static final String DEST_AIRPORT_ID_FIELD = "DEST_AIRPORT_ID";
     private static final String DELAY_FIELD = "ARR_DELAY_NEW";
     private static final String CANCELED_FIELD = "CANCELLED";
-
-    private String CODE_FIELD = "Code";
-    private String DESCRIPTION_FIELD = "Description";
+    private static final String CODE_FIELD = "Code";
+    private static final String DESCRIPTION_FIELD = "Description";
 
 
     public static void main(String[] args) throws Exception {
