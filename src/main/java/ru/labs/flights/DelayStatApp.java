@@ -9,9 +9,7 @@ import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.broadcast.Broadcast;
 import scala.Tuple2;
-import scala.Tuple4;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class DelayStatApp {
