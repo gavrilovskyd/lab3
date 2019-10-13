@@ -44,7 +44,7 @@ public class BadFlightsStat implements Serializable {
                 Math.max(a.getMaxDelay(), b.getMaxDelay()),
                 a.getDelayedCount() + b.getDelayedCount(),
                 a.getCanceledCount()+b.getCanceledCount(),
-                a.totalCount()+b.getTotalCount(),
+                a.getTotalCount()+b.getTotalCount(),
         )
     }
 }
