@@ -55,7 +55,7 @@ public class DelayStatApp {
 
                     return new Tuple2<>(record.get(CODE_FIELD), record.get(DESCRIPTION_FIELD));
                 });
-        HashMap<String,String> airportNamesMap = airportNames.collectAsMap();
-        final Broadcast<HashMap<String, String>> airportNamesBroadcasted = sc.broadcast(airportNamesMap);
+        Map<String,String> airportNamesMap = airportNames.collectAsMap();
+        final Broadcast<Map<String, String>> airportNamesBroadcasted = sc.broadcast(airportNamesMap);
     }
 }
