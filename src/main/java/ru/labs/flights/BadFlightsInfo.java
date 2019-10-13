@@ -20,5 +20,5 @@ public class BadFlightsInfo implements Serializable {
         return ((double) delayedCount / totalCount);
     }
 
-
+    public static 
 }
