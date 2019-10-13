@@ -2,7 +2,7 @@ package ru.labs.flights;
 
 import java.io.Serializable;
 
-public class BadFlightsInfo implements Serializable {
+public class BadFlightsStat implements Serializable {
     private float maxDelay;
     private int delayedCount;
     private int canceledCount;
@@ -20,5 +20,7 @@ public class BadFlightsInfo implements Serializable {
         return ((double) delayedCount / totalCount);
     }
 
-    public static 
+    public static BadFlightsStat add(BadFlightsStat a, BadFlightsStat b) {
+        
+    }
 }
