@@ -42,12 +42,14 @@ public class BadFlightsStat implements Serializable {
     }
 
     public BadFlightsStat(String rawDelay, String rawCanceled) {
-        this.canceledCount = (Float.parseFloat(rawCanceled) < EPS ? 1 : 0);
-
         maxDelay = 0.f;
         if (!rawDelay.isEmpty()) {
             maxDelay = Float.parseFloat(rawDelay);
         }
+        
+        this.canceledCount = (Float.parseFloat(rawCanceled) < EPS ? 1 : 0);
+
+
     }
 
     public static BadFlightsStat add(BadFlightsStat a, BadFlightsStat b) {
