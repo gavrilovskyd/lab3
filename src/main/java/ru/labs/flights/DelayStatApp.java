@@ -31,15 +31,16 @@ public class DelayStatApp {
         JavaSparkContext sc = new JavaSparkContext(conf);
 
         JavaRDD<String> flightLines = sc.textFile("flights_data.csv");
-        JavaPairRDD<Tuple2<String, String>, Float> airportsDelay =
-                flightLines.map(line -> {
+        JavaPairRDD<Tuple2<String, String>, Float> airportsDelay = flightLines
+                .map(line -> {
                     CSVParser parser = CSVParser.parse(line.toString(), CSVFormat.RFC4180.withHeader(flightHeader));
                     CSVRecord record = parser.getRecords().get(0);
 
                     return new Tuple4<>(
                             record.get(ORIGIN_AIRPORT_ID_FIELD), record.get(DEST_AIRPORT_ID_FIELD),
                             record.get(DELAY_FIELD), record.get(CANCELED_FIELD));
-                }).filter(parsedRecord -> Float.parseFloat(parsedRecord._4())< EPS
+                })
+                .filter(parsedRecord -> Float.parseFloat(parsedRecord._4())< EPS
                         && !parsedRecord._3().isEmpty() && Float.parseFloat(parsedRecord._3()) > EPS).mapToPair();
 
     }
