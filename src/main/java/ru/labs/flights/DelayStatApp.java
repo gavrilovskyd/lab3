@@ -64,5 +64,6 @@ public class DelayStatApp {
         });
 
         totalAirportStat.saveAsTextFile("result.txt");
+        sc.stop();
     }
 }
