@@ -14,8 +14,8 @@ public class DelayStatApp {
         JavaRDD<String> flightLines = sc.textFile("flights_data.csv");
         JavaPairRDD<Tuple2<String, String>, FlightInfo> airportsDelay =
                 flightLines.mapToPair(line -> {
-                    
-                })
+                    String[] fields = line.split(",");
+                });
 
     }
 }
