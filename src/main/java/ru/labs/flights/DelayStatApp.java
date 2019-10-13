@@ -51,6 +51,6 @@ public class DelayStatApp {
 
                     return new Tuple2<>(record.get(CODE_FIELD), record.get(DESCRIPTION_FIELD));
                 });
-        airportNames.collectAsMap();
+        airportNamesMap = airportNames.collectAsMap();
     }
 }
