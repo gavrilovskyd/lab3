@@ -10,6 +10,7 @@ import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
 import scala.Tuple4;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class DelayStatApp {
@@ -53,6 +54,6 @@ public class DelayStatApp {
 
                     return new Tuple2<>(record.get(CODE_FIELD), record.get(DESCRIPTION_FIELD));
                 });
-        Map<String,String> airportNamesMap = airportNames.collectAsMap();
+        HashMap<String,String> airportNamesMap = airportNames.collectAsMap();
     }
 }
