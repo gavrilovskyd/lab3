@@ -8,19 +8,5 @@ public class BadFlightsInfo implements Serializable {
     private int canceledCount;
     private int totalCount;
 
-    private boolean isCanceled;
-    private static final double EPS = 1e-6;
-
-    public float getDelay() {
-        return delay;
-    }
-
-    public boolean isCanceled() {
-        return isCanceled;
-    }
-
-    public BadFlightsInfo(float delay, float isCanceled) {
-        this.delay = delay;
-        this.isCanceled = (isCanceled > EPS);
-    }
+    
 }
