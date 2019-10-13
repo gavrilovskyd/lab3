@@ -36,7 +36,7 @@ public class BadFlightsStat implements Serializable {
         this.maxDelay = maxDelay;
         this.delayedCount = delayedCount;
         this.canceledCount = canceledCount;
-        this.totalCount = canceledCount;
+        this.totalCount = totalCount;
     }
 
     public static BadFlightsStat add(BadFlightsStat a, BadFlightsStat b) {
