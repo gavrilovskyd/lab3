@@ -8,6 +8,6 @@ public class DelayStatApp {
         SparkConf conf = new SparkConf().setAppName("DelayStatApp");
         JavaSparkContext sc = new JavaSparkContext(conf);
 
-        
+
     }
 }
