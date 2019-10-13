@@ -31,7 +31,7 @@ public class DelayStatApp {
         JavaSparkContext sc = new JavaSparkContext(conf);
 
         JavaRDD<String> flightLines = sc.textFile("flights_data.csv");
-        JavaPairRDD<Tuple2<String, String>, Float> airportsDelay = flightLines
+        JavaPairRDD<Tuple2<String, String>, BadFlightsStat> airportsDelay = flightLines
                 .map(line -> {
                     CSVParser parser = CSVParser.parse(line.toString(), CSVFormat.RFC4180.withHeader(flightHeader));
                     CSVRecord record = parser.getRecords().get(0);
