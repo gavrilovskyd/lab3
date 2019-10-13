@@ -10,7 +10,6 @@ public class DelayStatApp {
         JavaSparkContext sc = new JavaSparkContext(conf);
 
         JavaRDD<String> airportLines = sc.textFile("airports_data.csv");
-        
 
     }
 }
