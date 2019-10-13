@@ -16,11 +16,12 @@ public class DelayStatApp {
             "ORIGIN_CITY_MARKET_ID","DEST_AIRPORT_ID","WHEELS_ON","ARR_TIME","ARR_DELAY",
             "ARR_DELAY_NEW","CANCELLED","CANCELLATION_CODE","AIR_TIME","DISTANCE"
     };
-
-    private String CANCELED_FIELD = "CANCELLED";
-    private String DELAY_FIELD = "ARR_DELAY_NEW";
+    
     private String ORIGIN_AIRPORT_ID_FIELD = "ORIGIN_AIRPORT_ID";
     private String DEST_AIRPORT_ID_FIELD = "DEST_AIRPORT_ID";
+    private String CANCELED_FIELD = "CANCELLED";
+    private String DELAY_FIELD = "ARR_DELAY_NEW";
+
 
     public static void main(String[] args) throws Exception {
         SparkConf conf = new SparkConf().setAppName("DelayStatApp");
