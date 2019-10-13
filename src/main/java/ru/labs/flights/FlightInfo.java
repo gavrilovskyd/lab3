@@ -1,6 +1,8 @@
 package ru.labs.flights;
 
-public class FlightInfo implements {
+import java.io.Serializable;
+
+public class FlightInfo implements Serializable {
     private float delay;
     private boolean isCanceled;
 
@@ -11,4 +13,6 @@ public class FlightInfo implements {
     public boolean isCanceled() {
         return isCanceled;
     }
+
+    public FlightInfo
 }
