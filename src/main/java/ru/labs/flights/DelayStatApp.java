@@ -8,6 +8,7 @@ import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
+import scala.Tuple4;
 
 public class DelayStatApp {
     private static final double EPS = 1e-6;
@@ -35,10 +36,10 @@ public class DelayStatApp {
                     CSVParser parser = CSVParser.parse(line.toString(), CSVFormat.RFC4180.withHeader(flightHeader));
                     CSVRecord record = parser.getRecords().get(0);
 
-                    return new String[]{
+                    return new Tuple4<>(
                             record.get(ORIGIN_AIRPORT_ID_FIELD), record.get(DEST_AIRPORT_ID_FIELD),
                             record.get(DELAY_FIELD), record.get(CANCELED_FIELD)};
-                }).filter(flightInfo -> );
+                }).filter(flightInfo -> Float.parseFloat(record.get(CANCELED_FIELD)) < EPS);
 
     }
 }
