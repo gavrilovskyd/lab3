@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class FlightInfo implements Serializable {
     private float delay;
     private boolean isCanceled;
+    private double 
 
     public float getDelay() {
         return delay;
@@ -16,6 +17,7 @@ public class FlightInfo implements Serializable {
 
     public FlightInfo(float delay, float isCanceled) {
         this.delay = delay;
-        this.isCanceled = isCanceled;
+
+
     }
 }
