@@ -58,6 +58,6 @@ public class DelayStatApp {
         Map<String,String> airportNamesMap = airportNames.collectAsMap();
         final Broadcast<Map<String, String>> airportNamesBroadcast = sc.broadcast(airportNamesMap);
 
-        airportsBadFlightsStat.map(air)
+        airportsBadFlightsStats.map(badFlightsStat -> airportNamesBroadcast.value())
     }
 }
