@@ -7,7 +7,8 @@ import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
 
 public class DelayStatApp {
-    public static final int ORIGIN_AIRPORT_ID_FILED = 12;
+    private static final int ORIGIN_AIRPORT_ID_FILED = 12;
+    private static final int ORIGIN_AIRPORT_ID_FILED = 12;
 
     public static void main(String[] args) throws Exception {
         SparkConf conf = new SparkConf().setAppName("DelayStatApp");
@@ -17,7 +18,7 @@ public class DelayStatApp {
         JavaPairRDD<Tuple2<String, String>, FlightInfo> airportsDelay =
                 flightLines.mapToPair(line -> {
                     String[] fields = line.split(",");
-                    return new Tuple2<>(new Tuple2<>(fields[ORIGIN_AIRPORT_ID_FILED]))
+                    return new Tuple2<>(new Tuple2<>(fields[ORIGIN_AIRPORT_ID_FILED], ))
                 });
 
     }
