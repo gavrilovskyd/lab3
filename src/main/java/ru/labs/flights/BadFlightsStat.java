@@ -20,7 +20,14 @@ public class BadFlightsStat implements Serializable {
         return ((double) delayedCount / totalCount);
     }
 
+    public BadFlightsStat(float maxDelay, int delayedCount, int canceledCount, int totalCount) {
+        this.maxDelay = maxDelay;
+        this.delayedCount = delayedCount;
+        this.canceledCount = canceledCount;
+        this.totalCount = canceledCount;
+    }
+
     public static BadFlightsStat add(BadFlightsStat a, BadFlightsStat b) {
-        
+
     }
 }
