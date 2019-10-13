@@ -40,5 +40,7 @@ public class DelayStatApp {
                             new BadFlightsStat(record.get(DELAY_FIELD), record.get(CANCELED_FIELD)));
                 });
         airportsBadFlightsStat.reduceByKey(BadFlightsStat::add);
+
+        JavaRDD<String>airportLines = sc.textFile("")
     }
 }
