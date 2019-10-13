@@ -37,7 +37,7 @@ public class DelayStatApp {
 
                     return new String[]{
                             record.get(ORIGIN_AIRPORT_ID_FIELD), record.get(DEST_AIRPORT_ID_FIELD),
-                            record.get()};
+                            record.get(DELAY_FIELD), record.get(CANCELED_FIELD)};
                 }).filter(flightPair -> Float.parseFloat(flightPair._2._2) < EPS &&  );
 
     }
