@@ -14,5 +14,8 @@ public class FlightInfo implements Serializable {
         return isCanceled;
     }
 
-    public FlightInfo
+    public FlightInfo(float delay, float isCanceled) {
+        this.delay = delay;
+        this.isCanceled = isCanceled;
+    }
 }
