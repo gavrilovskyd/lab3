@@ -12,7 +12,7 @@ public class BadFlightsInfo implements Serializable {
         return maxDelay;
     }
 
-    public float canceledPercent() {
-        return ((float)canceledCount / totalCount) * 100;
+    public double canceledPart() {
+        return ((double) canceledCount / totalCount);
     }
 }
