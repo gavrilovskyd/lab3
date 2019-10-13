@@ -41,7 +41,8 @@ public class DelayStatApp {
                             record.get(DELAY_FIELD), record.get(CANCELED_FIELD));
                 })
                 .filter(parsedRecord -> Float.parseFloat(parsedRecord._4())< EPS
-                        && !parsedRecord._3().isEmpty() && Float.parseFloat(parsedRecord._3()) > EPS).mapToPair();
+                        && !parsedRecord._3().isEmpty() && Float.parseFloat(parsedRecord._3()) > EPS)
+                .mapToPair();
 
     }
 }
