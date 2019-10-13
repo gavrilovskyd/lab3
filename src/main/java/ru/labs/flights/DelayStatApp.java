@@ -58,7 +58,7 @@ public class DelayStatApp {
 
         //TODO: remove Strings
         JavaRDD<String> totalAirportStat = airportsBadFlightsStats.map(badFlightsStat -> {
-            return String.format("FROM: %s; TO: %s; MAX_DELAY: %f; DELAYED: %f%; CANCELED: %f%;",
+            return String.format("FROM: %s TO: %s; MAX_DELAY: %f; DELAYED: %f%; CANCELED: %f%;",
                     airportNamesBroadcast.value().get(badFlightsStat._1._1),
                     airportNamesBroadcast.value().get(badFlightsStat._1._2),
                     badFlightsStat._2.getMaxDelay(),
