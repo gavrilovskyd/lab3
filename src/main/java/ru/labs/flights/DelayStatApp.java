@@ -7,6 +7,7 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.broadcast.Broadcast;
 import scala.Tuple2;
 import scala.Tuple4;
 
@@ -55,6 +56,6 @@ public class DelayStatApp {
                     return new Tuple2<>(record.get(CODE_FIELD), record.get(DESCRIPTION_FIELD));
                 });
         HashMap<String,String> airportNamesMap = airportNames.collectAsMap();
-        
+        final Broadcast<HashMap<String, String>>
     }
 }
