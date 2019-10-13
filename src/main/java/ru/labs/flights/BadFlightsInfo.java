@@ -8,5 +8,11 @@ public class BadFlightsInfo implements Serializable {
     private int canceledCount;
     private int totalCount;
 
-    
+    public float getMaxDelay() {
+        return maxDelay;
+    }
+
+    public float canceledPercent() {
+        
+    }
 }
