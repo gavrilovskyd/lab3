@@ -7,8 +7,16 @@ import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
 
 public class DelayStatApp {
-    private static final int ORIGIN_AIRPORT_ID_FILED = 11;
-    private static final int DEST_AIRPORT_ID_FILED = 14;
+    private static final String[] flightHeader = {
+            "YEAR","QUARTER","MONTH", "DAY_OF_MONTH","DAY_OF_WEEK","FL_DATE","UNIQUE_CARRIER",
+            "AIRLINE_ID","CARRIER","TAIL_NUM","FL_NUM","ORIGIN_AIRPORT_ID","ORIGIN_AIRPORT_SEQ_ID",
+            "ORIGIN_CITY_MARKET_ID","DEST_AIRPORT_ID","WHEELS_ON","ARR_TIME","ARR_DELAY",
+            "ARR_DELAY_NEW","CANCELLED","CANCELLATION_CODE","AIR_TIME","DISTANCE"
+    };
+
+    private String CANCELED_FIELD = "CANCELLED";
+    private String DELAY_FIELD = "ARR_DELAY_NEW";
+    private String DEST_AIRPORT_ID_FIELD = "DEST_AIRPORT_ID";
 
     public static void main(String[] args) throws Exception {
         SparkConf conf = new SparkConf().setAppName("DelayStatApp");
