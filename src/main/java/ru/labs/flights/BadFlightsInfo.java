@@ -15,4 +15,8 @@ public class BadFlightsInfo implements Serializable {
     public double canceledPart() {
         return ((double) canceledCount / totalCount);
     }
+
+    public double elayedPart() {
+        
+    }
 }
