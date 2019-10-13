@@ -37,6 +37,7 @@ public class BadFlightsStat implements Serializable {
     }
 
     public BadFlightsStat(float maxDelay, int delayedCount, int canceledCount, int totalCount) {
+        this.originAirportName = "";
         this.maxDelay = maxDelay;
         this.delayedCount = delayedCount;
         this.canceledCount = canceledCount;
