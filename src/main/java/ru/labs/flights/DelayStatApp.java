@@ -71,7 +71,7 @@ public class DelayStatApp {
             //return badFlightsStat._2;
         });
 
-        System.out.println(totalAirportStat.take(10));
+        totalAirportStat.saveAsTextFile("result.txt");
         sc.stop();
     }
 }
