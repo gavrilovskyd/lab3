@@ -10,6 +10,7 @@ import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
 
 public class DelayStatApp {
+    private static final double EPS = 1e-6;
     private static final String[] flightHeader = {
             "YEAR","QUARTER","MONTH", "DAY_OF_MONTH","DAY_OF_WEEK","FL_DATE","UNIQUE_CARRIER",
             "AIRLINE_ID","CARRIER","TAIL_NUM","FL_NUM","ORIGIN_AIRPORT_ID","ORIGIN_AIRPORT_SEQ_ID",
@@ -36,7 +37,7 @@ public class DelayStatApp {
                     return new Tuple2<>(
                             new Tuple2<>(record.get(ORIGIN_AIRPORT_ID_FIELD), record.get(DEST_AIRPORT_ID_FIELD)),
                             new Tuple2<>(record.get(DELAY_FIELD), record.get(CANCELED_FIELD)));
-                }).filter(flightPair -> flightPair._2._2);
+                }).filter(flightPair -> Float.parseFloat(flightPair._2._2) < EPS );
 
     }
 }
