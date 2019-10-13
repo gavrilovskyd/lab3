@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class BadFlightsStat implements Serializable {
     private static final double EPS = 1e-6;
-    
+
     private float maxDelay;
     private int delayedCount;
     private int canceledCount;
@@ -42,7 +42,7 @@ public class BadFlightsStat implements Serializable {
     }
 
     public BadFlightsStat(String rawDelay, String rawCanceled) {
-
+        
 
     }
 
