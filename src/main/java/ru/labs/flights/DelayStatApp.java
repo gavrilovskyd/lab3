@@ -17,6 +17,7 @@ public class DelayStatApp {
             "ORIGIN_CITY_MARKET_ID","DEST_AIRPORT_ID","WHEELS_ON","ARR_TIME","ARR_DELAY",
             "ARR_DELAY_NEW","CANCELLED","CANCELLATION_CODE","AIR_TIME","DISTANCE"
     };
+    private static final String[] airportHeader = {"Code", "Description"};
 
     private static final String ORIGIN_AIRPORT_ID_FIELD = "ORIGIN_AIRPORT_ID";
     private static final String DEST_AIRPORT_ID_FIELD = "DEST_AIRPORT_ID";
