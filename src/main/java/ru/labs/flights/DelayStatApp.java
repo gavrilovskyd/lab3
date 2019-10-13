@@ -20,8 +20,9 @@ public class DelayStatApp {
 
     private static final String ORIGIN_AIRPORT_ID_FIELD = "ORIGIN_AIRPORT_ID";
     private static final String DEST_AIRPORT_ID_FIELD = "DEST_AIRPORT_ID";
-    private static final String CANCELED_FIELD = "CANCELLED";
     private static final String DELAY_FIELD = "ARR_DELAY_NEW";
+    private static final String CANCELED_FIELD = "CANCELLED";
+
 
 
     public static void main(String[] args) throws Exception {
@@ -34,7 +35,9 @@ public class DelayStatApp {
                     CSVParser parser = CSVParser.parse(line.toString(), CSVFormat.RFC4180.withHeader(flightHeader));
                     CSVRecord record = parser.getRecords().get(0);
 
-                    return new String[]{};
+                    return new String[]{
+                            record.get(ORIGIN_AIRPORT_ID_FIELD), record.get(DEST_AIRPORT_ID_FIELD),
+                            record.get()};
                 }).filter(flightPair -> Float.parseFloat(flightPair._2._2) < EPS &&  );
 
     }
