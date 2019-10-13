@@ -15,6 +15,7 @@ public class DelayStatApp {
         JavaPairRDD<Tuple2<String, String>, FlightInfo> airportsDelay =
                 flightLines.mapToPair(line -> {
                     String[] fields = line.split(",");
+                    return 
                 });
 
     }
