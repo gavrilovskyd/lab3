@@ -4,7 +4,8 @@ import java.io.Serializable;
 
 public class BadFlightsInfo implements Serializable {
     private float maxDelay;
-    
+    private 
+
     private boolean isCanceled;
     private static final double EPS = 1e-6;
 
