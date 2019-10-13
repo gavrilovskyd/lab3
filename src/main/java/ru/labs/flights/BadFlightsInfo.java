@@ -19,4 +19,6 @@ public class BadFlightsInfo implements Serializable {
     public double delayedPart() {
         return ((double) delayedCount / totalCount);
     }
+
+    
 }
