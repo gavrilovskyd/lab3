@@ -11,5 +11,6 @@ public class DelayStatApp {
 
         JavaRDD<String> airportLines = sc.textFile("airports_data.csv");
         
+
     }
 }
