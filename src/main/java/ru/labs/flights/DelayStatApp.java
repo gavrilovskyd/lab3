@@ -1,5 +1,6 @@
 package ru.labs.flights;
 
+import org.apache.commons.csv.CSVParser;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
@@ -25,7 +26,7 @@ public class DelayStatApp {
         JavaRDD<String> flightLines = sc.textFile("flights_data.csv");
         JavaPairRDD<Tuple2<String, String>, FlightInfo> airportsDelay =
                 flightLines.mapToPair(line -> {
-                    CSVParser parser = CSVParser.parse(value.toString(), CSVFormat.RFC4180.withHeader(flightHeader));
+                    CSVParser parser = CSVParser.parse(line.toString(), CSVFormat.RFC4180.withHeader(flightHeader));
                     CSVRecord record = parser.getRecords().get(0);
 
                     return new Tuple2<>(
