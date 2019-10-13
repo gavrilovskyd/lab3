@@ -36,15 +36,10 @@ public class DelayStatApp {
                     CSVParser parser = CSVParser.parse(line.toString(), CSVFormat.RFC4180.withHeader(flightHeader));
                     CSVRecord record = parser.getRecords().get(0);
 
-                    return new Tuple4<>(
+                    return new Tuple2<>(
                             record.get(ORIGIN_AIRPORT_ID_FIELD), record.get(DEST_AIRPORT_ID_FIELD),
                             record.get(DELAY_FIELD), record.get(CANCELED_FIELD));
                 })
-                .filter(parsedRecord -> Float.parseFloat(parsedRecord._4())< EPS
-                        && !parsedRecord._3().isEmpty() && Float.parseFloat(parsedRecord._3()) > EPS)
-                .mapToPair(parsedRecord -> new Tuple2<>(
-                        new Tuple2<>(parsedRecord._1(), parsedRecord._2()),
-                        Float.parseFloat(parsedRecord._3())));
 
         airportsDelay.reduceByKey()
     }
