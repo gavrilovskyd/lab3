@@ -15,7 +15,7 @@ public class FlightInfo implements Serializable {
         return isCanceled;
     }
 
-    public FlightInfo(float delay, float isCanceled) {
+    public FlightInfo(String delay, String isCanceled) {
         this.delay = delay;
         this.isCanceled = (isCanceled > EPS);
     }
