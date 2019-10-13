@@ -13,6 +13,6 @@ public class BadFlightsInfo implements Serializable {
     }
 
     public float canceledPercent() {
-        
+        return canceledCount / totalCount
     }
 }
