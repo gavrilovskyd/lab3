@@ -38,7 +38,7 @@ public class DelayStatApp {
 
                     return new Tuple4<>(
                             record.get(ORIGIN_AIRPORT_ID_FIELD), record.get(DEST_AIRPORT_ID_FIELD),
-                            record.get(DELAY_FIELD), record.get(CANCELED_FIELD);
+                            record.get(DELAY_FIELD), record.get(CANCELED_FIELD));
                 }).filter(flightInfo -> Float.parseFloat(record.get(CANCELED_FIELD)) < EPS);
 
     }
