@@ -48,8 +48,8 @@ public class BadFlightsStat implements Serializable {
         }
 
         this.canceledCount = (Float.parseFloat(rawCanceled) > EPS ? 1 : 0);
-        this.delayedCount = (maxDelay )
-
+        this.delayedCount = (maxDelay > EPS ? 1 : 0);
+        this.totalCount = 1;
     }
 
     public static BadFlightsStat add(BadFlightsStat a, BadFlightsStat b) {
