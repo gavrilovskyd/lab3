@@ -36,7 +36,7 @@ public class DelayStatApp {
         JavaSparkContext sc = new JavaSparkContext(conf);
 
         JavaRDD<String> flightLines = sc.textFile("flights_data.csv");
-        JavaPairRDD<Tuple2<String, String>, BadFlightsStat> airportsBadFlightsStat = flightLines
+        JavaPairRDD<Tuple2<String, String>, BadFlightsStat> airportsBadFlightsStats = flightLines
                 .mapToPair(line -> {
                     CSVParser parser = CSVParser.parse(line.toString(), CSVFormat.RFC4180.withHeader(flightHeader));
                     CSVRecord record = parser.getRecords().get(0);
@@ -45,7 +45,7 @@ public class DelayStatApp {
                             new Tuple2<>(record.get(ORIGIN_AIRPORT_ID_FIELD), record.get(DEST_AIRPORT_ID_FIELD)),
                             new BadFlightsStat(record.get(DELAY_FIELD), record.get(CANCELED_FIELD)));
                 });
-        airportsBadFlightsStat.reduceByKey(BadFlightsStat::add);
+        airportsBadFlightsStats.reduceByKey(BadFlightsStat::add);
 
         JavaRDD<String>airportLines = sc.textFile("airports_data.csv");
         JavaPairRDD<String, String> airportNames = airportLines
@@ -57,5 +57,7 @@ public class DelayStatApp {
                 });
         Map<String,String> airportNamesMap = airportNames.collectAsMap();
         final Broadcast<Map<String, String>> airportNamesBroadcast = sc.broadcast(airportNamesMap);
+
+        airportsBadFlightsStat.map(air)
     }
 }
