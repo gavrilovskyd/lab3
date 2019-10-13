@@ -9,7 +9,7 @@ public class DelayStatApp {
         SparkConf conf = new SparkConf().setAppName("DelayStatApp");
         JavaSparkContext sc = new JavaSparkContext(conf);
 
-        JavaRDD<String> airportLines = sc.textFile("airports_data.csv");
+        JavaRDD<String> airportLines = sc.textFile("flights_data.csv");
 
     }
 }
