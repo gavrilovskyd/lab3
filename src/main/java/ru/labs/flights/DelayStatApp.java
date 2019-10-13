@@ -42,7 +42,7 @@ public class DelayStatApp {
                 })
                 .filter(parsedRecord -> Float.parseFloat(parsedRecord._4())< EPS
                         && !parsedRecord._3().isEmpty() && Float.parseFloat(parsedRecord._3()) > EPS)
-                .mapToPair(parsedRecord -> new Tuple2<>(new Tuple2<>(parsedRecord._1(), parsedRecord._2())));
+                .mapToPair(parsedRecord -> new Tuple2<>(new Tuple2<>(parsedRecord._1(), parsedRecord._2()), Float.parseFloat(parsedRecord._3())));
 
     }
 }
