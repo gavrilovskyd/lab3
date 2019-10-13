@@ -19,6 +19,7 @@ public class DelayStatApp {
 
     private String CANCELED_FIELD = "CANCELLED";
     private String DELAY_FIELD = "ARR_DELAY_NEW";
+    private String ORIGIN_AIRPORT_ID_FIELD = "ORIGIN_AIRPORT_ID";
     private String DEST_AIRPORT_ID_FIELD = "DEST_AIRPORT_ID";
 
     public static void main(String[] args) throws Exception {
