@@ -64,5 +64,7 @@ public class DelayStatApp {
 
             return badFlightsStat._2;
         });
+
+        totalAirportStat.saveAsTextFile("result.txt");
     }
 }
