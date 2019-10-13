@@ -2,8 +2,8 @@ package ru.labs.flights;
 
 import java.io.Serializable;
 
-public class FlightInfo implements Serializable {
-    private float delay;
+public class BadFlightsInfo implements Serializable {
+    private float maxDelay;
     private boolean isCanceled;
     private static final double EPS = 1e-6;
 
@@ -15,7 +15,7 @@ public class FlightInfo implements Serializable {
         return isCanceled;
     }
 
-    public FlightInfo(float delay, float isCanceled) {
+    public BadFlightsInfo(float delay, float isCanceled) {
         this.delay = delay;
         this.isCanceled = (isCanceled > EPS);
     }
