@@ -36,7 +36,13 @@ public class BadFlightsStat implements Serializable {
         return destAirportName;
     }
 
+    public void setOriginAirportName(String originAirportName) {
+        this.originAirportName = originAirportName;
+    }
 
+    public void setDestAirportName(String destAirportName) {
+        this.destAirportName = destAirportName;
+    }
 
     public double canceledPart() {
         return ((double) canceledCount / totalCount);
