@@ -48,6 +48,8 @@ public class DelayStatApp {
                 .mapToPair(line -> {
                     CSVParser parser = CSVParser.parse(line.toString(), CSVFormat.RFC4180.withHeader(airportHeader));
                     CSVRecord record = parser.getRecords().get(0);
+
+                    return new Tuple2<>(record.get(CODE_FIELD), record.get(DESCRIPTION_FIELD));
                 });
     }
 }
