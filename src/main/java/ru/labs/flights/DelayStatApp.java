@@ -42,6 +42,9 @@ public class DelayStatApp {
         airportsBadFlightsStat.reduceByKey(BadFlightsStat::add);
 
         JavaRDD<String>airportLines = sc.textFile("airports_data.csv");
-        JavaPairRDD<String, String> airportNames 
+        JavaPairRDD<String, String> airportNames = airportLines
+                .mapToPair(line -> {
+                    
+                });
     }
 }
