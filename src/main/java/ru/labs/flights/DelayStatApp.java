@@ -7,6 +7,8 @@ import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
 
 public class DelayStatApp {
+    public static final int ORIGIN_AIRPORT_ID_FILED = 12;
+
     public static void main(String[] args) throws Exception {
         SparkConf conf = new SparkConf().setAppName("DelayStatApp");
         JavaSparkContext sc = new JavaSparkContext(conf);
