@@ -34,7 +34,7 @@ public class DelayStatApp {
                     CSVRecord record = parser.getRecords().get(0);
 
                     return new Tuple2<>(
-                            new Tuple2<>(record.get(ORIGIN_AIRPORT_ID_FIELD), fields[DEST_AIRPORT_ID_FILED]),
+                            new Tuple2<>(record.get(ORIGIN_AIRPORT_ID_FIELD), record.get(DEST_AIRPORT_ID_FIELD)),
                             new FlightInfo(Float.parseFloat()))
                 });
 
