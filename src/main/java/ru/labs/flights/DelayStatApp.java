@@ -1,5 +1,6 @@
 package ru.labs.flights;
 
+import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
