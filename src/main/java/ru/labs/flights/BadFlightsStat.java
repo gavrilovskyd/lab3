@@ -12,6 +12,18 @@ public class BadFlightsStat implements Serializable {
         return maxDelay;
     }
 
+    public int getDelayedCount() {
+        return delayedCount;
+    }
+
+    public int getCanceledCount() {
+        return canceledCount;
+    }
+
+    public int getTotalCount() {
+        return totalCount;
+    }
+
     public double canceledPart() {
         return ((double) canceledCount / totalCount);
     }
@@ -30,7 +42,7 @@ public class BadFlightsStat implements Serializable {
     public static BadFlightsStat add(BadFlightsStat a, BadFlightsStat b) {
         return new BadFlightsStat(
                 Math.max(a.maxDelay, b.maxDelay),
-                a.
+
         )
     }
 }
