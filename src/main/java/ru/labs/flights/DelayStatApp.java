@@ -17,10 +17,10 @@ public class DelayStatApp {
             "ARR_DELAY_NEW","CANCELLED","CANCELLATION_CODE","AIR_TIME","DISTANCE"
     };
 
-    private String ORIGIN_AIRPORT_ID_FIELD = "ORIGIN_AIRPORT_ID";
-    private String DEST_AIRPORT_ID_FIELD = "DEST_AIRPORT_ID";
-    private String CANCELED_FIELD = "CANCELLED";
-    private String DELAY_FIELD = "ARR_DELAY_NEW";
+    private static final String ORIGIN_AIRPORT_ID_FIELD = "ORIGIN_AIRPORT_ID";
+    private static final String DEST_AIRPORT_ID_FIELD = "DEST_AIRPORT_ID";
+    private static final String CANCELED_FIELD = "CANCELLED";
+    private static final String DELAY_FIELD = "ARR_DELAY_NEW";
 
 
     public static void main(String[] args) throws Exception {
