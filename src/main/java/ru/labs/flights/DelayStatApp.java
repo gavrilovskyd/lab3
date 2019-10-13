@@ -12,6 +12,7 @@ public class DelayStatApp {
         JavaSparkContext sc = new JavaSparkContext(conf);
 
         JavaRDD<String> flightLines = sc.textFile("flights_data.csv");
-        JavaPairRDD<Tuple2<String, String>, FlightInfo> airportsDelay = flightLines.mapToPair()
+        JavaPairRDD<Tuple2<String, String>, FlightInfo> airportsDelay =
+                flightLines.mapToPair()
     }
 }
