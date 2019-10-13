@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class FlightInfo implements Serializable {
     private float delay;
     private boolean isCanceled;
-    private double 
+    private static final double EPS = 1e-6;
 
     public float getDelay() {
         return delay;
