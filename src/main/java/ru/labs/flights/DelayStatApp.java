@@ -31,7 +31,7 @@ public class DelayStatApp {
 
     public static void main(String[] args) throws Exception {
         if (args.length != 3) {
-            System.err.println("Usage: FlightsJoinApp <input_flights path> <input_airports path> <output path>");
+            System.err.println("Usage: DelayStatApp <input_flights path> <input_airports path> <output path>");
             System.exit(-1);
         }
 
