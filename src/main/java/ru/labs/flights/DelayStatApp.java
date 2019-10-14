@@ -58,8 +58,9 @@ public class DelayStatApp {
                     return new Tuple2<>(
                             new Tuple2<>(record.get(ORIGIN_AIRPORT_ID_FIELD), record.get(DEST_AIRPORT_ID_FIELD)),
                             new BadFlightsStat(record.get(DELAY_FIELD), record.get(CANCELED_FIELD)));
-                });
-        JavaPairRDD<Tuple2<String, String>, BadFlightsStat> reduced = airportsBadFlightsStats.reduceByKey(BadFlightsStat::add);
+                })
+                .reduceByKey(BadFlightsStat::add);
+        JavaPairRDD<Tuple2<String, String>, BadFlightsStat> reduced = airportsBadFlightsStats
 
         //TODO: remove Strings
         JavaRDD<String> totalAirportStat = airportsBadFlightsStats.map(badFlightsStat -> {
