@@ -60,7 +60,7 @@ public class DelayStatApp {
                             new BadFlightStatCounter(record.get(DELAY_FIELD), record.get(CANCELED_FIELD)));
                 })
                 .reduceByKey(BadFlightStatCounter::add);
-        
+
         JavaRDD<DestinationBadFlightStat> totalAirportStat = airportsBadFlightsStats.map(badFlightsStat -> {
             return new DestinationBadFlightStat(
                     airportNamesBroadcast.value().get(badFlightsStat._1._1),
