@@ -33,6 +33,17 @@ public class DelayStatApp {
         SparkConf conf = new SparkConf().setAppName("DelayStatApp");
         JavaSparkContext sc = new JavaSparkContext(conf);
 
+        JavaRDD<String>airportLines = sc.textFile("airports_data.csv");
+        JavaPairRDD<String, String> airportNames = airportLines
+                .mapToPair(line -> {
+                    CSVParser parser = CSVParser.parse(line.toString(), CSVFormat.RFC4180.withHeader(airportHeader));
+                    CSVRecord record = parser.getRecords().get(0);
+
+                    return new Tuple2<>(record.get(CODE_FIELD), record.get(DESCRIPTION_FIELD));
+                });
+        Map<String,String> airportNamesMap = airportNames.collectAsMap();
+        final Broadcast<Map<String, String>> airportNamesBroadcast = sc.broadcast(airportNamesMap);
+
         JavaRDD<String> flightLines = sc.textFile("flights_data.csv");
         JavaPairRDD<Tuple2<String, String>, BadFlightsStat> airportsBadFlightsStats = flightLines
                 .mapToPair(line -> {
@@ -45,16 +56,7 @@ public class DelayStatApp {
                 });
         airportsBadFlightsStats.reduceByKey(BadFlightsStat::add);
 
-        JavaRDD<String>airportLines = sc.textFile("airports_data.csv");
-        JavaPairRDD<String, String> airportNames = airportLines
-                .mapToPair(line -> {
-                    CSVParser parser = CSVParser.parse(line.toString(), CSVFormat.RFC4180.withHeader(airportHeader));
-                    CSVRecord record = parser.getRecords().get(0);
 
-                    return new Tuple2<>(record.get(CODE_FIELD), record.get(DESCRIPTION_FIELD));
-                });
-        Map<String,String> airportNamesMap = airportNames.collectAsMap();
-        final Broadcast<Map<String, String>> airportNamesBroadcast = sc.broadcast(airportNamesMap);
 
         //TODO: remove Strings
         JavaRDD<String> totalAirportStat = airportsBadFlightsStats.map(badFlightsStat -> {
