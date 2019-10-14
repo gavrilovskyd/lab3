@@ -76,8 +76,7 @@ public class BadFlightsStat implements Serializable {
         this.totalCount = 1;
 
         System.out.println(String.format("CREATED: %f; %d; %d; %d",
-               this.maxDelay,
-                a.getDelayedCount() + b.getDelayedCount(),
+               this.maxDelay, this.delayedCount, this.canceledCount,
                 a.getCanceledCount() + b.getCanceledCount(),
                 a.getTotalCount()+b.getTotalCount()
         ));
