@@ -20,6 +20,6 @@ public class DestinationBadFlightStat implements Serializable {
 
     @Override
     public String toString() {
-        return String.format("%s,%s,%f,%f,%f".);
+        return String.format("%s,%s,%f,%f,%f",);
     }
 }
