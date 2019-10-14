@@ -49,7 +49,7 @@ public class DelayStatApp {
         Map<String,String> airportNamesMap = airportNames.collectAsMap();
         final Broadcast<Map<String, String>> airportNamesBroadcast = sc.broadcast(airportNamesMap);
 
-        JavaRDD<String> flightLines = sc.textFile("flights_data.csv");
+        JavaRDD<String> flightLines = sc.textFile(args[0]);
         JavaPairRDD<Tuple2<String, String>, BadFlightsStat> airportsBadFlightsStats = flightLines
                 .mapToPair(line -> {
                     CSVParser parser = CSVParser.parse(line, CSVFormat.RFC4180.withHeader(flightHeader));
