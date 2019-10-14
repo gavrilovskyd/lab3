@@ -12,6 +12,30 @@ public class BadFlightsStat implements Serializable {
     private String originAirportName;
     private String destAirportName;
 
+    private BadFlightsStat(float maxDelay, int delayedCount, int canceledCount, int totalCount) {
+        this.originAirportName = "";
+        this.destAirportName = "";
+
+        this.maxDelay = maxDelay;
+        this.delayedCount = delayedCount;
+        this.canceledCount = canceledCount;
+        this.totalCount = totalCount;
+    }
+
+    public BadFlightsStat(String rawDelay, String rawCanceled) {
+        this.originAirportName = "";
+        this.destAirportName = "";
+
+        this.maxDelay = 0.f;
+        if (!rawDelay.isEmpty()) {
+            this.maxDelay = Float.parseFloat(rawDelay);
+        }
+
+        this.canceledCount = (Float.parseFloat(rawCanceled) > EPS ? 1 : 0);
+        this.delayedCount = (maxDelay > EPS ? 1 : 0);
+        this.totalCount = 1;
+    }
+
     public float getMaxDelay() {
         return maxDelay;
     }
@@ -50,30 +74,6 @@ public class BadFlightsStat implements Serializable {
 
     public float delayedPart() {
         return ((float) delayedCount / totalCount);
-    }
-
-    private BadFlightsStat(float maxDelay, int delayedCount, int canceledCount, int totalCount) {
-        this.originAirportName = "";
-        this.destAirportName = "";
-
-        this.maxDelay = maxDelay;
-        this.delayedCount = delayedCount;
-        this.canceledCount = canceledCount;
-        this.totalCount = totalCount;
-    }
-
-    public BadFlightsStat(String rawDelay, String rawCanceled) {
-        this.originAirportName = "";
-        this.destAirportName = "";
-
-        this.maxDelay = 0.f;
-        if (!rawDelay.isEmpty()) {
-            this.maxDelay = Float.parseFloat(rawDelay);
-        }
-
-        this.canceledCount = (Float.parseFloat(rawCanceled) > EPS ? 1 : 0);
-        this.delayedCount = (maxDelay > EPS ? 1 : 0);
-        this.totalCount = 1;
     }
 
     public static BadFlightsStat add(BadFlightsStat a, BadFlightsStat b) {
