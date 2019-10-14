@@ -8,4 +8,9 @@ public class DestinationBadFlightStat implements Serializable {
     private float maxDelay;
     private float delayedPercentage;
     private float canceledPercentage;
+
+    public DestinationBadFlightStat(String from, String to, float maxDelay,
+                                    float delayedPercentage, float canceledPercentage) {
+
+    }
 }
