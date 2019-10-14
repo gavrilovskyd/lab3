@@ -47,7 +47,7 @@ public class DelayStatApp {
         JavaRDD<String> flightLines = sc.textFile("flights_data.csv");
         JavaPairRDD<Tuple2<String, String>, BadFlightsStat> airportsBadFlightsStats = flightLines
                 .mapToPair(line -> {
-                    CSVParser parser = CSVParser.parse(line.toString(), CSVFormat.RFC4180.withHeader(flightHeader));
+                    CSVParser parser = CSVParser.parse(line, CSVFormat.RFC4180.withHeader(flightHeader));
                     CSVRecord record = parser.getRecords().get(0);
 
                     return new Tuple2<>(
@@ -55,7 +55,7 @@ public class DelayStatApp {
                             new BadFlightsStat(record.get(DELAY_FIELD), record.get(CANCELED_FIELD)));
                 });
         airportsBadFlightsStats.reduceByKey(BadFlightsStat::add);
-        
+
         //TODO: remove Strings
         JavaRDD<String> totalAirportStat = airportsBadFlightsStats.map(badFlightsStat -> {
             return String.format("FROM: %s; TO: %s; MAX_DELAY: %f; DELAYED: %f%%; CANCELED: %f%%;",
