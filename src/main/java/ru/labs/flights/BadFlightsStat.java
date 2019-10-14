@@ -18,9 +18,6 @@ public class BadFlightsStat implements Serializable {
     }
 
     public BadFlightsStat(String rawDelay, String rawCanceled) {
-        this.originAirportName = "";
-        this.destAirportName = "";
-
         this.maxDelay = 0.f;
         if (!rawDelay.isEmpty()) {
             this.maxDelay = Float.parseFloat(rawDelay);
