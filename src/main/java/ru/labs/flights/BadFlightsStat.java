@@ -45,11 +45,11 @@ public class BadFlightsStat implements Serializable {
     }
 
     public float canceledPart() {
-        return ((double) canceledCount / totalCount);
+        return ((float) canceledCount / totalCount);
     }
 
-    public double delayedPart() {
-        return ((double) delayedCount / totalCount);
+    public float delayedPart() {
+        return ((float) delayedCount / totalCount);
     }
 
     public BadFlightsStat(float maxDelay, int delayedCount, int canceledCount, int totalCount) {
