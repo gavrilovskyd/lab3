@@ -1,4 +1,7 @@
 package ru.labs.flights;
 
-public class DestinationBadFlightStat {
+import java.io.Serializable;
+
+public class DestinationBadFlightStat implements Serializable {
+    private String from;
 }
