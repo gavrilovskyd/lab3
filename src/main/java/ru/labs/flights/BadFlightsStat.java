@@ -77,13 +77,6 @@ public class BadFlightsStat implements Serializable {
     }
 
     public static BadFlightsStat add(BadFlightsStat a, BadFlightsStat b) {
-        System.out.println(String.format("ADD: %f; %d; %d; %d",
-                Math.max(a.getMaxDelay(), b.getMaxDelay()),
-                a.getDelayedCount() + b.getDelayedCount(),
-                a.getCanceledCount() + b.getCanceledCount(),
-                a.getTotalCount()+b.getTotalCount()
-        ));
-
         return new BadFlightsStat(
                 Math.max(a.getMaxDelay(), b.getMaxDelay()),
                 a.getDelayedCount() + b.getDelayedCount(),
