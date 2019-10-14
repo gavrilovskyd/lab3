@@ -61,6 +61,7 @@ public class DelayStatApp {
                 });
         airportsBadFlightsStats.reduceByKey((a, b) -> {
             System.out.println(a);
+            System.out.println(b);
             BadFlightsStat::add
         });
 
