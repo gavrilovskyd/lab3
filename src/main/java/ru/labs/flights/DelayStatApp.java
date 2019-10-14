@@ -60,6 +60,7 @@ public class DelayStatApp {
                             new BadFlightsStat(record.get(DELAY_FIELD), record.get(CANCELED_FIELD)));
                 });
         airportsBadFlightsStats.reduceByKey((a, b) -> {
+            System.out.println(a);
             BadFlightsStat::add
         });
 
