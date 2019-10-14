@@ -61,7 +61,7 @@ public class DelayStatApp {
                 })
                 .reduceByKey(BadFlightStatCounter::add);
 
-        JavaRDD<DestinationBadFlightStat> totalAirportStat = airportsBadFlightsStats.map(badFlightsStat -> {
+        JavaRDD<DestinationBadFlightStat> totalAirportStat = airportsBadFlightsStats.map(badFlightsStat ->
             return new DestinationBadFlightStat(
                     airportNamesBroadcast.value().get(badFlightsStat._1._1),
                     airportNamesBroadcast.value().get(badFlightsStat._1._2),
@@ -69,7 +69,7 @@ public class DelayStatApp {
                     badFlightsStat._2.delayedPart() * 100,
                     badFlightsStat._2.canceledPart() * 100
             );
-        });
+        );
 
         totalAirportStat.saveAsTextFile(args[2]);
         sc.stop();
