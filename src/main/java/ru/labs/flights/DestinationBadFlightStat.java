@@ -17,4 +17,6 @@ public class DestinationBadFlightStat implements Serializable {
         this.delayedPercentage = delayedPercentage;
         this.canceledPercentage = canceledPercentage;
     }
+
+    
 }
