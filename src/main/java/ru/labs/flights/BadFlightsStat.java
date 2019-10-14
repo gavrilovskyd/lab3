@@ -44,7 +44,7 @@ public class BadFlightsStat implements Serializable {
         this.destAirportName = destAirportName;
     }
 
-    public double canceledPart() {
+    public float canceledPart() {
         return ((double) canceledCount / totalCount);
     }
 
