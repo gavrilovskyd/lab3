@@ -12,5 +12,9 @@ public class DestinationBadFlightStat implements Serializable {
     public DestinationBadFlightStat(String from, String to, float maxDelay,
                                     float delayedPercentage, float canceledPercentage) {
         this.from = from;
+        this.to = to;
+        this.maxDelay = maxDelay;
+        this.delayedPercentage = delayedPercentage;
+        this.canceledPercentage = canceledPercentage
     }
 }
