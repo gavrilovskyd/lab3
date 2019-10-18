@@ -2,7 +2,7 @@ package ru.labs.flights;
 
 import java.io.Serializable;
 
-public class BadFlightStatCounter implements Serializable {
+public class BadFlightsCounter implements Serializable {
     private static final double EPS = 1e-6;
 
     private float maxDelay;
@@ -10,14 +10,14 @@ public class BadFlightStatCounter implements Serializable {
     private int canceledCount;
     private int totalCount;
 
-    private BadFlightStatCounter(float maxDelay, int delayedCount, int canceledCount, int totalCount) {
+    private BadFlightsCounter(float maxDelay, int delayedCount, int canceledCount, int totalCount) {
         this.maxDelay = maxDelay;
         this.delayedCount = delayedCount;
         this.canceledCount = canceledCount;
         this.totalCount = totalCount;
     }
 
-    public BadFlightStatCounter(String rawDelay, String rawCanceled) {
+    public BadFlightsCounter(String rawDelay, String rawCanceled) {
         this.maxDelay = 0.f;
         if (!rawDelay.isEmpty()) {
             this.maxDelay = Float.parseFloat(rawDelay);
@@ -52,8 +52,8 @@ public class BadFlightStatCounter implements Serializable {
         return ((float) delayedCount / totalCount);
     }
 
-    public static BadFlightStatCounter add(BadFlightStatCounter a, BadFlightStatCounter b) {
-        return new BadFlightStatCounter(
+    public static BadFlightsCounter add(BadFlightsCounter a, BadFlightsCounter b) {
+        return new BadFlightsCounter(
                 Math.max(a.getMaxDelay(), b.getMaxDelay()),
                 a.getDelayedCount() + b.getDelayedCount(),
                 a.getCanceledCount() + b.getCanceledCount(),

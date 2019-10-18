@@ -38,6 +38,18 @@ public class DelayStatApp {
         SparkConf conf = new SparkConf().setAppName("DelayStatApp");
         JavaSparkContext sc = new JavaSparkContext(conf);
 
+        JavaRDD<String> flightLines = sc.textFile(args[0]);
+        JavaPairRDD<Tuple2<String, String>, BadFlightsCounter> airportsBadFlightsStats = flightLines
+                .mapToPair(line -> {
+                    CSVParser parser = CSVParser.parse(line, CSVFormat.RFC4180.withHeader(flightHeader));
+                    CSVRecord record = parser.getRecords().get(0);
+
+                    return new Tuple2<>(
+                            new Tuple2<>(record.get(ORIGIN_AIRPORT_ID_FIELD), record.get(DEST_AIRPORT_ID_FIELD)),
+                            new BadFlightsCounter(record.get(DELAY_FIELD), record.get(CANCELED_FIELD)));
+                })
+                .reduceByKey(BadFlightsCounter::add);
+
         JavaRDD<String>airportLines = sc.textFile(args[1]);
         JavaPairRDD<String, String> airportNames = airportLines
                 .mapToPair(line -> {
@@ -48,18 +60,6 @@ public class DelayStatApp {
                 });
         Map<String,String> airportNamesMap = airportNames.collectAsMap();
         final Broadcast<Map<String, String>> airportNamesBroadcast = sc.broadcast(airportNamesMap);
-
-        JavaRDD<String> flightLines = sc.textFile(args[0]);
-        JavaPairRDD<Tuple2<String, String>, BadFlightStatCounter> airportsBadFlightsStats = flightLines
-                .mapToPair(line -> {
-                    CSVParser parser = CSVParser.parse(line, CSVFormat.RFC4180.withHeader(flightHeader));
-                    CSVRecord record = parser.getRecords().get(0);
-
-                    return new Tuple2<>(
-                            new Tuple2<>(record.get(ORIGIN_AIRPORT_ID_FIELD), record.get(DEST_AIRPORT_ID_FIELD)),
-                            new BadFlightStatCounter(record.get(DELAY_FIELD), record.get(CANCELED_FIELD)));
-                })
-                .reduceByKey(BadFlightStatCounter::add);
 
         JavaRDD<DestinationBadFlightStat> totalAirportStat = airportsBadFlightsStats.map(badFlightsStat ->
              new DestinationBadFlightStat(
