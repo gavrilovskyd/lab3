@@ -10,12 +10,12 @@ public class DestinationBadFlightStat implements Serializable {
     private float canceledPercentage;
 
     public DestinationBadFlightStat(String from, String to, float maxDelay,
-                                    float delayedPercentage, float canceledPercentage) {
+                                    float delayedPart, float canceledPart) {
         this.from = from;
         this.to = to;
         this.maxDelay = maxDelay;
-        this.delayedPercentage = delayedPercentage;
-        this.canceledPercentage = canceledPercentage;
+        this.delayedPercentage = delayedPart * 100;
+        this.canceledPercentage = canceledPart * 100;
     }
 
     @Override
